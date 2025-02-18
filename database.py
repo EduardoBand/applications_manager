@@ -137,11 +137,9 @@ def search_record(company: str) -> Optional[List[Tuple]]:
     conn = connect_db()
     if conn:
         cursor = conn.cursor()
-        query = """
-            SELECT * FROM applications
-            WHERE company = %s
-        """
-        cursor.execute(query, (company,))
+        query = "SELECT * FROM applications WHERE company ILIKE %s"
+        param = f"%{company}%"
+        cursor.execute(query, (param,))
         rows = cursor.fetchall()
         cursor.close()
         conn.close()
