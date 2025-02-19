@@ -30,6 +30,7 @@ label_application_date = tk.Label(frame_inputs, text="Application Date")
 label_application_date.grid(row=0, column=2, padx=5, pady=5)
 entry_application_date = tk.Entry(frame_inputs)
 entry_application_date.grid(row=1, column=2, padx=5, pady=5)
+entry_application_date.insert(0, datetime.now().strftime("%Y-%m-%d"))
 
 label_had_interview = tk.Label(frame_inputs, text="Had Interview")
 label_had_interview.grid(row=2, column=0, padx=5, pady=5)
